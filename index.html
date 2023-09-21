@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .card {
+            width: 190px;
+            height: 254px;
+            background: rgb(183, 130, 130);
+            border-radius: 10px;
+            transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .shadow {
+        box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
+                    0 0  0 2px rgb(22, 18, 18),
+                    0.3em 0.3em 1em rgba(0,0,0,0.3);
+        }
+
+        button {
+            width: 150px;
+            height: 60px;
+            border: 3px solid #373839;
+            border-radius: 45px;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: white;
+            font-size: 1.2em;
+            font-weight: 550;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        button:hover {
+            background: #80838f;
+            color: white;
+            font-size: 1.5em;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>Array Methods Demo</h1>
+    <div class="container">
+        <div class="card shadow" id="pushDemo">
+            <h2>push() Method</h2>
+            <button onclick="thePush()">Click Me</button>
+        </div>
+        <div class="card shadow" id="popDemo">
+            <h2>pop() Method</h2>
+            <button onclick="thePop()">Click Me</button>
+        </div>
+        <div class="card shadow" id="findDemo">
+            <h2>find() Method</h2>
+            <button onclick="theFind()">Click Me</button>
+        </div>
+    </div>
+
+    <script>
+        
+        let myArray = ["Anime", "Memes", "Music"];
+
+        function thePush() {
+            myArray.push("Video Games");
+            alert("Item 'Video Games' added to the array. Updated array: " + myArray.join(', '));
+        }
+
+        function thePop() {
+            let removedItem = myArray.pop();
+            if (removedItem !== undefined) {
+                alert("Item removed from the array: " + removedItem);
+            } else {
+                alert("Array is empty.");
+            }
+        }
+
+        function theFind() {
+            const searchTerm = "Memes";
+            const foundItem = myArray.includes(searchTerm);
+            
+            if (foundItem) {
+                alert(`Found item "${searchTerm}" in the array.`);
+            } else {
+                alert(`Item "${searchTerm}" not found in the array.`);
+            }
+        }
+    </script>
+</body>
+</html>
